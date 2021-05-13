@@ -16,6 +16,9 @@ Environments are independent, so if you want to deploy to multiple environments 
 **Important**  
 You may incur AWS charges for data stored in the bootstrapped resources\.
 
+**Important**  
+The modern bootstrap template currently gives access to read/write any bucket in the account it's bootstrapped in, plus the ability to read any secrets from `KMS`\. Any trusted accounts will also be able to perform these actions\. If you don't want this, please use a custom template\. These extra permissions are only needed by the `pipelines` module\.
+
 **Note**  
 Older versions of the modern template created a Customer Master Key \(CMK\) in each bootstrapped environment by default\. To avoid charges for the CMK, re\-bootstrap these environments using `--no-bootstrap-customer-key`\. The current default is to not use a CMK to avoid these charges\. 
 
